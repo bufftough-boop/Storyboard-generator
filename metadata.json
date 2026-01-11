@@ -1,0 +1,5 @@
+{
+  "name": "StoryBoard AI",
+  "description": "A professional storyboard creation tool that generates pencil sketches from your scripts using Gemini Nano.",
+  "requestFramePermissions": []
+}
