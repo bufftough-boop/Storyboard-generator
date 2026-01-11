@@ -107,7 +107,7 @@ const AnimaticPlayer: React.FC<{
                     </div>
                 )}
                 <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-4 text-white">
-                    <button onClick={() => setCurrentIndex(0)} className="hover:text-primary"><span className="material-symbols-outlined">skip_previous</span></button>
+                    <button onClick={() => setCurrentIndex(0)} className="hover:text-blue-500"><span className="material-symbols-outlined">skip_previous</span></button>
                     <button onClick={() => setIsPlaying(!isPlaying)}><span className="material-symbols-outlined text-4xl">{isPlaying ? 'pause_circle' : 'play_circle'}</span></button>
                     <button onClick={onClose} className="hover:text-red-500"><span className="material-symbols-outlined">close</span></button>
                 </div>
@@ -172,7 +172,7 @@ const ShotEditor: React.FC<{
             onDragOver={(e) => e.preventDefault()}
             onDrop={() => onDrop(index)}
             onClick={onClick}
-            className={`p-3 rounded-lg border transition-all cursor-pointer ${isSelected ? 'bg-primary/5 dark:bg-primary/10 border-primary ring-1 ring-primary' : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 hover:border-primary/50'}`}
+            className={`p-3 rounded-lg border transition-all cursor-pointer ${isSelected ? 'bg-blue-50 dark:bg-blue-900/20 border-blue-500 ring-1 ring-blue-500' : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 hover:border-blue-300'}`}
         >
             <div className="flex items-center justify-between mb-2">
                 <div className="flex items-center gap-2">
@@ -208,7 +208,7 @@ const ShotEditor: React.FC<{
                 />
                 <button 
                     onClick={(e) => { e.stopPropagation(); onRegenerate(shot.id); }}
-                    className={`p-1 rounded border border-slate-200 dark:border-slate-700 ${shot.isGenerating ? 'animate-pulse bg-primary/20' : 'hover:bg-slate-100'}`}
+                    className={`p-1 rounded border border-slate-200 dark:border-slate-700 ${shot.isGenerating ? 'animate-pulse bg-blue-100' : 'hover:bg-slate-100'}`}
                 >
                      <span className="material-symbols-outlined text-sm">auto_awesome</span>
                 </button>
@@ -600,14 +600,14 @@ export default function App() {
         return (
             <div className="flex flex-col items-center justify-center min-h-screen bg-transparent">
                 <div className="p-8 bg-white dark:bg-slate-900 rounded-2xl shadow-xl border border-slate-200 dark:border-slate-800 text-center max-w-md w-full">
-                    <div className="mb-6 flex justify-center text-primary">
+                    <div className="mb-6 flex justify-center text-blue-600">
                         <span className="material-symbols-outlined text-6xl">movie_edit</span>
                     </div>
                     <h1 className="text-2xl font-bold mb-2 text-slate-900 dark:text-white">Welcome to StoryBoard AI</h1>
                     <p className="text-slate-500 mb-8">Create professional animatics and storyboards with the power of generative AI.</p>
                     <button 
                         onClick={handleLogin}
-                        className="w-full flex items-center justify-center gap-3 px-6 py-3 bg-white border border-slate-300 hover:bg-background-light text-slate-700 font-semibold rounded-lg transition-all shadow-sm"
+                        className="w-full flex items-center justify-center gap-3 px-6 py-3 bg-white border border-slate-300 hover:bg-slate-50 text-slate-700 font-semibold rounded-lg transition-all shadow-sm"
                     >
                         <img src="https://www.google.com/favicon.ico" alt="Google" className="w-5 h-5" />
                         Sign in with Google (Demo)
@@ -620,9 +620,9 @@ export default function App() {
 
     return (
         <div className="flex flex-col h-screen overflow-hidden text-slate-900 dark:text-white bg-transparent">
-            <div className="flex h-12 items-center justify-between border-b border-slate-200 dark:border-slate-800 px-4 bg-white dark:bg-background-dark z-30 flex-shrink-0">
+            <div className="flex h-12 items-center justify-between border-b border-slate-200 dark:border-slate-800 px-4 bg-white dark:bg-slate-950 z-30 flex-shrink-0">
                 <div className="flex items-center h-full">
-                    <div className="flex items-center gap-2 pr-4 mr-2 border-r border-slate-200 dark:border-slate-800 text-primary">
+                    <div className="flex items-center gap-2 pr-4 mr-2 border-r border-slate-200 dark:border-slate-800 text-blue-600">
                         <span className="material-symbols-outlined text-2xl font-bold">movie_edit</span>
                     </div>
                     <nav className="flex items-center h-full gap-1 overflow-x-auto no-scrollbar">
@@ -632,26 +632,26 @@ export default function App() {
                                 onClick={() => setActiveProjectId(project.id)}
                                 className={`group flex items-center h-full border-b-2 px-2 transition-all cursor-pointer ${
                                     activeProjectId === project.id 
-                                    ? 'border-primary bg-primary/5 dark:bg-primary/10' 
-                                    : 'border-transparent hover:bg-background-light dark:hover:bg-slate-800'
+                                    ? 'border-blue-600 bg-blue-50 dark:bg-blue-900/20' 
+                                    : 'border-transparent hover:bg-slate-50 dark:hover:bg-slate-800'
                                 }`}
                             >
                                 <span className={`px-2 text-sm font-semibold whitespace-nowrap ${
-                                    activeProjectId === project.id ? 'text-primary' : 'text-slate-500 dark:text-slate-400'
+                                    activeProjectId === project.id ? 'text-blue-600' : 'text-slate-500 dark:text-slate-400'
                                 }`}>
                                     Film: {project.name}
                                 </span>
                                 {activeProjectId === project.id && (
                                     <button 
                                         onClick={(e) => { e.stopPropagation(); requestDeleteProject(project.id, project.name); }}
-                                        className="p-1 text-primary/40 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 rounded transition-all"
+                                        className="p-1 text-blue-600/40 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 rounded transition-all"
                                     >
                                         <span className="material-symbols-outlined text-[18px]">close</span>
                                     </button>
                                 )}
                             </div>
                         ))}
-                        <button onClick={handleNewProject} className="ml-2 flex items-center gap-1.5 px-3 py-1.5 bg-background-light dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-lg text-xs font-bold transition-all whitespace-nowrap text-slate-600 dark:text-slate-300">
+                        <button onClick={handleNewProject} className="ml-2 flex items-center gap-1.5 px-3 py-1.5 bg-slate-50 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-lg text-xs font-bold transition-all whitespace-nowrap text-slate-600 dark:text-slate-300">
                             <span className="material-symbols-outlined text-sm">add</span>
                             New Film
                         </button>
@@ -666,11 +666,11 @@ export default function App() {
                     )}
                     <button 
                         onClick={() => setIsDarkMode(!isDarkMode)}
-                        className="p-2 text-slate-500 hover:bg-background-light dark:hover:bg-slate-800 rounded-lg transition-colors flex items-center justify-center mr-2"
+                        className="p-2 text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors flex items-center justify-center mr-2"
                     >
                         <span className="material-symbols-outlined">{isDarkMode ? 'light_mode' : 'dark_mode'}</span>
                     </button>
-                    <div className="flex items-center gap-2 px-3 py-1.5 bg-background-light dark:bg-slate-800 rounded-full">
+                    <div className="flex items-center gap-2 px-3 py-1.5 bg-slate-50 dark:bg-slate-800 rounded-full">
                         <img src={user.avatar} alt="User" className="w-5 h-5 rounded-full" />
                         <span className="text-xs font-semibold text-slate-700 dark:text-slate-200">{user.name}</span>
                         <button onClick={handleLogout} className="ml-2 text-xs text-slate-400 hover:text-red-500">Sign Out</button>
@@ -678,7 +678,7 @@ export default function App() {
                 </div>
             </div>
 
-            <header className="flex h-16 items-center justify-between border-b border-slate-200 dark:border-slate-800 px-6 bg-white dark:bg-background-dark z-20 flex-shrink-0">
+            <header className="flex h-16 items-center justify-between border-b border-slate-200 dark:border-slate-800 px-6 bg-white dark:bg-slate-950 z-20 flex-shrink-0">
                 <div className="flex items-center gap-4">
                     <div className="flex flex-col">
                         <div className="flex items-center gap-3">
@@ -691,14 +691,14 @@ export default function App() {
                                     updateProjects(projects.map(p => p.id === activeProjectId ? updated : p));
                                 }}
                             />
-                            <span className="material-symbols-outlined text-slate-400 text-sm cursor-pointer hover:text-primary">edit</span>
+                            <span className="material-symbols-outlined text-slate-400 text-sm cursor-pointer hover:text-blue-600">edit</span>
                             <select
                                 value={activeProject.aspectRatio}
                                 onChange={(e) => {
                                     const updated = { ...activeProject, aspectRatio: e.target.value as any };
                                     updateProjects(projects.map(p => p.id === activeProjectId ? updated : p));
                                 }}
-                                className="ml-2 bg-background-light dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-2 py-1 text-xs font-semibold focus:ring-primary focus:border-primary text-slate-700 dark:text-slate-300 outline-none"
+                                className="ml-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-2 py-1 text-xs font-semibold focus:ring-blue-600 focus:border-blue-600 text-slate-700 dark:text-slate-300 outline-none"
                             >
                                 <option value="16:9">16:9 Widescreen</option>
                                 <option value="9:16">9:16 Portrait</option>
@@ -712,14 +712,14 @@ export default function App() {
                 <div className="flex items-center gap-4">
                     <button 
                         onClick={() => setIsPlayerOpen(true)}
-                        className="group flex items-center gap-2.5 px-6 py-2.5 bg-primary hover:bg-blue-600 text-white rounded-xl text-sm font-bold shadow-lg shadow-primary/25 transition-all active:scale-[0.98]"
+                        className="group flex items-center gap-2.5 px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-sm font-bold shadow-lg shadow-blue-600/25 transition-all active:scale-[0.98]"
                     >
                         <span className="material-symbols-outlined text-[22px] fill-1 transition-transform group-hover:scale-110">play_circle</span>
                         Play Animatic
                     </button>
                     <button 
                         onClick={handleExport}
-                        className="flex items-center gap-2 px-4 py-2 bg-background-light dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-lg text-sm font-semibold transition-all text-slate-700 dark:text-slate-200"
+                        className="flex items-center gap-2 px-4 py-2 bg-slate-50 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-lg text-sm font-semibold transition-all text-slate-700 dark:text-slate-200"
                     >
                         <span className="material-symbols-outlined text-sm">picture_as_pdf</span>
                         Export
@@ -727,7 +727,7 @@ export default function App() {
                 </div>
             </header>
 
-            <div className="flex items-center px-4 bg-white dark:bg-background-dark border-b border-slate-200 dark:border-slate-800 h-10 overflow-x-auto no-scrollbar flex-shrink-0">
+            <div className="flex items-center px-4 bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 h-10 overflow-x-auto no-scrollbar flex-shrink-0">
                 <div className="flex items-center gap-1 h-full">
                     {activeProject.storyboards.map(sb => (
                          <div 
@@ -738,7 +738,7 @@ export default function App() {
                             }}
                             className={`flex items-center gap-2 px-4 h-full cursor-pointer border-b-2 transition-all ${
                                 activeStoryboard.id === sb.id 
-                                ? 'border-primary bg-primary/5 dark:bg-primary/10 text-primary' 
+                                ? 'border-blue-600 bg-blue-50 dark:bg-blue-900/20 text-blue-600' 
                                 : 'text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 border-transparent'
                             }`}
                         >
@@ -746,7 +746,7 @@ export default function App() {
                             {activeProject.storyboards.length > 1 && (
                                 <button 
                                     onClick={(e) => { e.stopPropagation(); requestDeleteStoryboard(sb.id, sb.name); }}
-                                    className="hover:bg-primary/20 rounded-full p-0.5 flex items-center justify-center text-slate-400 hover:text-red-500 transition-colors"
+                                    className="hover:bg-blue-600/20 rounded-full p-0.5 flex items-center justify-center text-slate-400 hover:text-red-500 transition-colors"
                                 >
                                     <span className="material-symbols-outlined text-[10px]">close</span>
                                 </button>
@@ -759,7 +759,7 @@ export default function App() {
                             const updated = { ...activeProject, storyboards: [...activeProject.storyboards, newSb], activeStoryboardId: newSb.id };
                             updateProjects(projects.map(p => p.id === activeProjectId ? updated : p));
                         }}
-                        className="flex items-center justify-center w-8 h-8 ml-2 text-slate-400 hover:text-primary hover:bg-background-light dark:hover:bg-slate-800 rounded-lg transition-all"
+                        className="flex items-center justify-center w-8 h-8 ml-2 text-slate-400 hover:text-blue-600 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-all"
                     >
                         <span className="material-symbols-outlined text-lg">add</span>
                     </button>
@@ -767,15 +767,15 @@ export default function App() {
             </div>
 
             <div className="flex flex-1 overflow-hidden">
-                <aside className="w-[400px] flex flex-col border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-background-dark">
+                <aside className="w-[400px] flex flex-col border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950">
                     <div className="p-4 flex flex-col gap-2 flex-shrink-0 border-b border-slate-100 dark:border-slate-800">
                         <div className="flex items-center justify-between mb-2">
                             <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400">Film Scenes</h3>
-                            <span className="px-2 py-0.5 rounded bg-background-light dark:bg-slate-800 text-[10px] text-slate-500">DRAFT 2.0</span>
+                            <span className="px-2 py-0.5 rounded bg-slate-50 dark:bg-slate-800 text-[10px] text-slate-500">DRAFT 2.0</span>
                         </div>
                         <button 
                             onClick={handleAddShot}
-                            className="flex items-center justify-center gap-2 w-full py-2.5 bg-primary/10 hover:bg-primary/20 text-primary border border-primary/20 rounded-lg text-sm font-bold transition-all"
+                            className="flex items-center justify-center gap-2 w-full py-2.5 bg-blue-50 hover:bg-blue-100 text-blue-600 border border-blue-200 rounded-lg text-sm font-bold transition-all"
                         >
                             <span className="material-symbols-outlined text-sm">add</span>
                             New Shot
@@ -819,10 +819,10 @@ export default function App() {
                                 </p>
                             </div>
                             <div className="flex gap-2">
-                                <button className="p-2 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm hover:bg-background-light dark:hover:bg-slate-700 transition-all text-slate-600 dark:text-slate-400">
+                                <button className="p-2 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm hover:bg-slate-50 dark:hover:bg-slate-700 transition-all text-slate-600 dark:text-slate-400">
                                     <span className="material-symbols-outlined text-xl">grid_view</span>
                                 </button>
-                                <button className="p-2 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm hover:bg-background-light dark:hover:bg-slate-700 transition-all text-slate-600 dark:text-slate-400">
+                                <button className="p-2 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm hover:bg-slate-50 dark:hover:bg-slate-700 transition-all text-slate-600 dark:text-slate-400">
                                     <span className="material-symbols-outlined text-xl">reorder</span>
                                 </button>
                             </div>
@@ -850,11 +850,11 @@ export default function App() {
                                 />
                             ))}
                             <div onClick={handleAddShot} className="group relative flex flex-col gap-3">
-                                <div className="w-full flex flex-col items-center justify-center gap-3 rounded-xl border-2 border-dashed border-slate-300 dark:border-slate-700 hover:border-primary/50 hover:bg-primary/5 cursor-pointer transition-all" style={{ aspectRatio: activeProject.aspectRatio.replace(':', '/') }}>
-                                    <div className="w-12 h-12 rounded-full bg-background-light dark:bg-slate-800 flex items-center justify-center text-slate-400 group-hover:text-primary transition-colors">
+                                <div className="w-full flex flex-col items-center justify-center gap-3 rounded-xl border-2 border-dashed border-slate-300 dark:border-slate-700 hover:border-blue-600/50 hover:bg-blue-600/5 cursor-pointer transition-all" style={{ aspectRatio: activeProject.aspectRatio.replace(':', '/') }}>
+                                    <div className="w-12 h-12 rounded-full bg-slate-50 dark:bg-slate-800 flex items-center justify-center text-slate-400 group-hover:text-blue-600 transition-colors">
                                         <span className="material-symbols-outlined text-2xl">add</span>
                                     </div>
-                                    <span className="text-sm font-semibold text-slate-400 group-hover:text-primary transition-colors">Add New Shot</span>
+                                    <span className="text-sm font-semibold text-slate-400 group-hover:text-blue-600 transition-colors">Add New Shot</span>
                                 </div>
                             </div>
                         </div>
